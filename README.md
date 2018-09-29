@@ -1,2 +1,2 @@
 # Glymce
-A simple, light-weight image viewer.
+A simple, lightweight, image viewer.
