@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Windows.Forms;
 
-namespace Glimpse
+namespace Glymce
 {
     public partial class mainForm : Form
     {
@@ -18,7 +18,7 @@ namespace Glimpse
         private void Window_Resized(object sender, EventArgs e)
         {
             picPanel.Width = this.Width - 16;
-            picPanel.Height = this.Height - 73;
+            picPanel.Height = this.Height - 115;
             SetZoom(isZoomed);
         }
         private void openButton_Click(object sender, EventArgs e)
@@ -28,23 +28,34 @@ namespace Glimpse
             openFile.Title = "Select an Image File";
             if (openFile.ShowDialog() == DialogResult.OK)
             {
-                FileStream openStream = (FileStream)openFile.OpenFile();
-                picBox.Image = Image.FromStream(openStream);
-                openStream.Dispose();
-                fileName = Path.GetFileNameWithoutExtension(openFile.SafeFileName);
-                extIndex = Ext_to_Index(Path.GetExtension(openFile.SafeFileName).ToLower());
+                try
+                {
+                    FileStream openStream = (FileStream)openFile.OpenFile();
+                    picBox.Image = Image.FromStream(openStream);
+                    openStream.Dispose();
+                    fileName = Path.GetFileNameWithoutExtension(openFile.SafeFileName);
+                    extIndex = Ext_to_Index(Path.GetExtension(openFile.SafeFileName).ToLower());
+                    resizeButton.Visible = true;
+                    saveButton.Visible = true;
+                }
+                catch
+                {
+                    
+                    MessageBox.Show("The file specified could not be opened.", "Error");
+                }
             }
+            openFile.Reset();
         }
         private void resizeButton_Click(object sender, EventArgs e)
         {
             if (isZoomed == true)
             {
-                resizeButton.Text = "Fit Window";
+                resizeButton.BackgroundImage = Properties.Resources.icons8_expand_50;
                 isZoomed = false;
             }
-            else if (resizeButton.Text == "Fit Window")
+            else
             {
-                resizeButton.Text = "Actual Size";
+                resizeButton.BackgroundImage = Properties.Resources.icons8_collapse_50;
                 isZoomed = true;
             }
             SetZoom(isZoomed);

@@ -1,4 +1,4 @@
-﻿namespace Glimpse
+﻿namespace Glymce
 {
     partial class mainForm
     {
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainForm));
             this.openButton = new System.Windows.Forms.Button();
             this.picBox = new System.Windows.Forms.PictureBox();
             this.resizeButton = new System.Windows.Forms.Button();
@@ -40,11 +41,15 @@
             // openButton
             // 
             this.openButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.openButton.Location = new System.Drawing.Point(281, 333);
+            this.openButton.BackColor = System.Drawing.Color.Transparent;
+            this.openButton.BackgroundImage = global::Glymce.Properties.Resources.icons8_open_50;
+            this.openButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.openButton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.openButton.Location = new System.Drawing.Point(290, 341);
             this.openButton.Name = "openButton";
-            this.openButton.Size = new System.Drawing.Size(68, 25);
+            this.openButton.Size = new System.Drawing.Size(50, 50);
             this.openButton.TabIndex = 1;
-            this.openButton.UseVisualStyleBackColor = true;
+            this.openButton.UseVisualStyleBackColor = false;
             this.openButton.Click += new System.EventHandler(this.openButton_Click);
             // 
             // picBox
@@ -61,23 +66,31 @@
             // resizeButton
             // 
             this.resizeButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.resizeButton.Location = new System.Drawing.Point(207, 333);
+            this.resizeButton.BackColor = System.Drawing.Color.Transparent;
+            this.resizeButton.BackgroundImage = global::Glymce.Properties.Resources.icons8_collapse_50;
+            this.resizeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.resizeButton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.resizeButton.Location = new System.Drawing.Point(220, 341);
             this.resizeButton.Name = "resizeButton";
-            this.resizeButton.Size = new System.Drawing.Size(68, 25);
+            this.resizeButton.Size = new System.Drawing.Size(50, 50);
             this.resizeButton.TabIndex = 3;
-            this.resizeButton.Text = "Actual Size";
-            this.resizeButton.UseVisualStyleBackColor = true;
+            this.resizeButton.UseVisualStyleBackColor = false;
+            this.resizeButton.Visible = false;
             this.resizeButton.Click += new System.EventHandler(this.resizeButton_Click);
             // 
             // saveButton
             // 
             this.saveButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.saveButton.Location = new System.Drawing.Point(355, 333);
+            this.saveButton.BackColor = System.Drawing.Color.Transparent;
+            this.saveButton.BackgroundImage = global::Glymce.Properties.Resources.icons8_save_as_50;
+            this.saveButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.saveButton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.saveButton.Location = new System.Drawing.Point(360, 341);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(68, 25);
+            this.saveButton.Size = new System.Drawing.Size(50, 50);
             this.saveButton.TabIndex = 2;
-            this.saveButton.Text = "Save As...";
-            this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.UseVisualStyleBackColor = false;
+            this.saveButton.Visible = false;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // picPanel
@@ -95,14 +108,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(631, 361);
+            this.ClientSize = new System.Drawing.Size(631, 403);
             this.Controls.Add(this.picPanel);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.resizeButton);
             this.Controls.Add(this.openButton);
-            this.MinimumSize = new System.Drawing.Size(240, 82);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(240, 158);
             this.Name = "mainForm";
-            this.Text = "Glimpse";
+            this.Text = "Glymce";
             this.Resize += new System.EventHandler(this.Window_Resized);
             ((System.ComponentModel.ISupportInitialize)(this.picBox)).EndInit();
             this.picPanel.ResumeLayout(false);
