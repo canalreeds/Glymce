@@ -30,9 +30,15 @@ namespace Glymce
             {
                 try
                 {
-                    FileStream openStream = (FileStream)openFile.OpenFile();
-                    picBox.Image = Image.FromStream(openStream);
-                    openStream.Dispose();
+                    Bitmap picObj;
+                    using (FileStream openStream = new FileStream(openFile.FileName, FileMode.Open, FileAccess.Read))
+                    {
+                        MemoryStream openMem = new MemoryStream();
+                        openStream.CopyTo(openMem);
+                        openMem.Seek(0, SeekOrigin.Begin);
+                        picObj = (Bitmap)Image.FromStream(openMem);
+                    }
+                    picBox.Image = picObj;
                     fileName = Path.GetFileNameWithoutExtension(openFile.SafeFileName);
                     extIndex = Ext_to_Index(Path.GetExtension(openFile.SafeFileName).ToLower());
                     resizeButton.Visible = true;

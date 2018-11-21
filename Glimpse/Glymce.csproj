@@ -105,9 +105,6 @@
     <None Include="Properties\icons8-expand-50.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\icons8-eye-filled-50.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Properties\icons8-open-50.png" />
   </ItemGroup>
   <ItemGroup>
